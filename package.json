@@ -12,6 +12,7 @@
     "start": "node dist/server.js",
     "serve": "npm run build && npm run watch",
     "build": "npm run build-ts && npm run tslint && npm run",
+    "init-db": "npm run build && node dist/scripts/init-database.js",
     "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"gray,magenta\" \"npm run watch-ts\" \"nodemon dist/server.js\"",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",

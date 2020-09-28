@@ -1,4 +1,4 @@
-const charactersData: any[] = [
+export const charactersData: any[] = [
   {
     id: 1011334,
     name: '3-D Man',

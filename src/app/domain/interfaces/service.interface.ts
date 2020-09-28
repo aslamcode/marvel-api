@@ -6,5 +6,6 @@ export interface IService<TEntity> {
   getAll(query?: any, select?: string, populate?: any): Promise<TEntity[]>;
   listAll(query?: any, skip?: number, limit?: number, sort?: any, select?: string, populate?: any): Promise<IList<TEntity>>;
   getById(id: string, select?: string, populate?: any): Promise<TEntity>;
+  clear(): Promise<boolean>;
 
 }

@@ -41,7 +41,16 @@ export class BaseService<TEntity> implements IService<TEntity> {
 
   async getById(id: string): Promise<TEntity> {
     try {
-      return new Promise<TEntity>(() => {});
+      return this.repository.getById(id);
+    } catch (err) {
+      console.warn(err);
+      throw err;
+    }
+  }
+
+  async clear(): Promise<boolean> {
+    try {
+      return this.repository.clear();
     } catch (err) {
       console.warn(err);
       throw err;

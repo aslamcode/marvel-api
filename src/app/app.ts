@@ -65,7 +65,7 @@ async function configureApp() {
         }
       ]
     },
-    apis: ['src/app/controllers/*.ts']
+    apis: ['src/app/api/controllers/*.ts']
   };
 
   const specs = swaggerJsdoc(swaggerOptions);

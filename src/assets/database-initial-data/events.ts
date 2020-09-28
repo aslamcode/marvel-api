@@ -1,4 +1,4 @@
-const eventsData: any[] = [
+export const eventsData: any[] = [
   {
     id: 269,
     title: 'Secret Invasion',

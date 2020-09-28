@@ -7,5 +7,6 @@ export interface IRepository<TEntity> {
   listAll(query: any, skip?: number, limit?: number, sort?: any, select?: string, populate?: any): Promise<IList<TEntity>>;
   listAllWithAggregation(match?: any, project?: any, skip?: number, limit?: number, sort?: any): Promise<IList<TEntity>>;
   getById(id: string, select?: string, populate?: any): Promise<TEntity>;
+  clear(): Promise<boolean>;
 
 }

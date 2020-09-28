@@ -25,26 +25,6 @@ export class BaseRepository<TEntity> implements IRepository<TEntity> {
     }
   }
 
-  async deleteById(id: string) {
-    try {
-      await this.model.deleteOne({ _id: id }) as any as TEntity;
-      return { status: true };
-    } catch (err) {
-      console.warn('Error on BaseRepository.deleteById', err);
-      throw err;
-    }
-  }
-
-  async updateById(id: string, document: TEntity, newDocument: boolean = true) {
-    try {
-      const result = await this.model.findOneAndUpdate({ _id: id }, document, { new: newDocument }).lean() as TEntity[];
-      return result;
-    } catch (err) {
-      console.warn('Error on BaseRepository.updateById', err);
-      throw err;
-    }
-  }
-
   async getAll(query: any = {}, select: string = '', populate: any = ''): Promise<TEntity[]> {
     try {
       const result = await this.model.find(query).select(select).populate(populate).lean() as any as TEntity[];
@@ -104,10 +84,20 @@ export class BaseRepository<TEntity> implements IRepository<TEntity> {
 
   async getById(id: string, select = '', populate: any = ''): Promise<TEntity> {
     try {
-      const result = await this.model.findById(id).select(select).populate(populate).lean() as any as TEntity;
+      const result = await this.model.findOne({ id }).select(select).populate(populate).lean() as any as TEntity;
       return result;
     } catch (err) {
       console.warn('Error on BaseRepository.getById', err);
+      throw err;
+    }
+  }
+
+  async clear(): Promise<boolean> {
+    try {
+      await this.model.remove({});
+      return true;
+    } catch (err) {
+      console.warn('Error on BaseRepository.clear', err);
       throw err;
     }
   }

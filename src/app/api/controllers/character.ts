@@ -9,8 +9,8 @@ import { storyService } from '../../domain/services/story';
 /**
  * @swagger
  * tags:
- *   name: Auth
- *   description: Auth management
+ *   name: Character
+ *   description: Character management
  */
 const router: Router = Router();
 

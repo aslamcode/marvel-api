@@ -47,9 +47,9 @@ export const comicSchema = new Schema({
     path: { type: String },
     extension: { type: String },
   }],
-  variants: [{ type: Types.Subdocument }],
-  collections: [{ type: Types.Subdocument }],
-  collectedIssues: [{ type: Types.Subdocument }],
+  variants: [{ type: Object }],
+  collections: [{ type: Object }],
+  collectedIssues: [{ type: Object }],
 
   series: seriesStoriesEventsSchema,
   stories: {
