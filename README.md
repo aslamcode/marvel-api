@@ -36,6 +36,11 @@
 
 * No banco foi carregado 2 personagens, então para obter resultados nas consultas utilize os seguintes IDS: 1011334 e 1017100.
 
+## Documentação da API
+
+* Para ver a documentação dos end points basta acessar o endereço em que a API estiver rodando junto com `/doc`.
+No caso se for utilizado as mesmas configurações do .env sugerido, o endereço será `http://localhost:8080/doc`
+
 ## Detalhes da implementação
 
 * A implementação da arquitetura do projeto foi baseada nos padrões do ONION e está implementada da seguinte forma:
