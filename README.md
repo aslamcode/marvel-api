@@ -5,12 +5,11 @@
 * NODE (v10.16.0)
 * NPM
 * MongoDB (4.4.1) - [link para download](https://www.mongodb.com/try/download/community)
-* Typescript (3.5.3)
 
 ## Instruções de configuração:
 
 * Clone o repositório
-* Na pasta raiz onde o projeto foi clonado rode o comando:
+* Na pasta raiz execute o comando através do terminal:
  `npm i` ou `npm install` para realizar o download das dependências
 * Crie um arquivo de ambiente chamado .env na pasta raiz do projeto, ele deverá conter os seguintes dados:
 
@@ -34,7 +33,7 @@
 
 ## Instruções de testes dos end points:
 
-* No banco foi carregado IDS de 2 personagens, então para obter resultados nas consultas utilize os seguintes IDS: 1011334 e 1017100.
+* No banco foi carregado 2 personagens, então para obter resultados nas consultas utilize os seguintes IDS: 1011334 e 1017100.
 
 ## Detalhes da implementação
 
