@@ -6,8 +6,22 @@ import { eventService } from '../../domain/services/event';
 import { serieService } from '../../domain/services/serie';
 import { storyService } from '../../domain/services/story';
 
+/**
+ * @swagger
+ * tags:
+ *   name: Auth
+ *   description: Auth management
+ */
 const router: Router = Router();
 
+/**
+ * @swagger
+ * path:
+ *  /auth/login:
+ *    post:
+ *      summary: Autenticate a user
+ *      tags: [Auth]
+ */
 router.post('/characters', async (req: Request, res: Response) => {
   try {
     res.success(await characterService.getAll(req.params.id));

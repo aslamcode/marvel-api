@@ -15,8 +15,8 @@ if (fs.existsSync('.env')) {
 export const environment = process.env.NODE_ENV;
 const isProd = environment === 'prod';
 
-export const port = isProd ? process.env.DEV_PORT : process.env.PORT;
-export const dataBase = isProd ? process.env.DEV_DATABASE : process.env.DATABASE;
+export const port = isProd ? process.env.PORT : process.env.DEV_PORT;
+export const dbConnection = isProd ? process.env.DB_CONNECTION : process.env.DEV_DB_CONNECTION;
 
 // Check errors
 if (!port) {
@@ -24,7 +24,7 @@ if (!port) {
     process.exit(1);
 }
 
-if (!dataBase) {
-    logger.error('No DATABASE. Set DATABASE environment variable.');
+if (!dbConnection) {
+    logger.error('No DB_CONNECTION. Set DB_CONNECTION environment variable.');
     process.exit(1);
 }

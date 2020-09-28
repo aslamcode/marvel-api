@@ -6,9 +6,10 @@ import lusca from 'lusca';
 import dotenv from 'dotenv';
 import expressValidator from 'express-validator';
 import morgan from 'morgan';
-import { port, dataBase } from '../util/secrets';
+import { port, dbConnection } from '../util/secrets';
 import { superResponse } from '../middlewares/super-response/super-response';
 import { controllers } from './api/controllers/controllers';
+import mongoose from 'mongoose';
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const cors = require('cors');
@@ -39,8 +40,6 @@ async function configureApp() {
 
   // Import the controllers
   app.use('/api/v1/public', controllers);
-
-  // Connect with database
 
   // Configure swagger
   const swaggerOptions = {
@@ -77,6 +76,16 @@ async function configureApp() {
       explorer: true
     })
   );
+
+  // Wait the connection with MongoDB
+  try {
+    (<any>mongoose).Promise = Promise;
+    await mongoose.connect(dbConnection, { useMongoClient: true });
+    console.log('MongoDB is Running.');
+  } catch (err) {
+    console.log('MongoDB connection error. Please make sure MongoDB is running. ' + err);
+    process.exit(1);
+  }
 }
 
 export default app;
