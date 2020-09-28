@@ -61,7 +61,7 @@ async function configureApp() {
       },
       servers: [
         {
-          url: 'http://localhost:8080/api/v1/public'
+          url: `http://localhost:${port}/v1/public`
         }
       ]
     },

@@ -18,15 +18,15 @@ const router: Router = Router();
 /**
  * @swagger
  * path:
- *  /auth/login:
- *    post:
- *      summary: Autenticate a user
- *      tags: [Auth]
+ *  /characters:
+ *    get:
+ *      summary: Get all characters
+ *      tags: [Character]
  */
 router.get('/characters', async (req: Request, res: Response) => {
   try {
-    const offset = Number(req.params.offset);
-    const limit = Number(req.params.limit || 20);
+    const offset = Number(req.query.offset);
+    const limit = Number(req.query.limit || 20);
 
     const data = await characterService.listAll({}, offset, limit);
 
@@ -56,8 +56,8 @@ router.get('/characters/:id', async (req: Request, res: Response) => {
 
 router.get('/characters/:id/comics', async (req: Request, res: Response) => {
   try {
-    const offset = Number(req.params.offset);
-    const limit = Number(req.params.limit || 20);
+    const offset = Number(req.query.offset);
+    const limit = Number(req.query.limit || 20);
     const characterId = req.params.id;
 
     const data = await comicService.getByCharacterId(characterId, offset, limit);
@@ -76,8 +76,8 @@ router.get('/characters/:id/comics', async (req: Request, res: Response) => {
 
 router.get('/characters/:id/events', async (req: Request, res: Response) => {
   try {
-    const offset = Number(req.params.offset);
-    const limit = Number(req.params.limit || 20);
+    const offset = Number(req.query.offset);
+    const limit = Number(req.query.limit || 20);
     const characterId = req.params.id;
 
     const data = await eventService.getByCharacterId(characterId, offset, limit);
@@ -96,8 +96,8 @@ router.get('/characters/:id/events', async (req: Request, res: Response) => {
 
 router.get('/characters/:id/series', async (req: Request, res: Response) => {
   try {
-    const offset = Number(req.params.offset);
-    const limit = Number(req.params.limit || 20);
+    const offset = Number(req.query.offset);
+    const limit = Number(req.query.limit || 20);
     const characterId = req.params.id;
 
     const data = await serieService.getByCharacterId(characterId, offset, limit);
@@ -115,8 +115,8 @@ router.get('/characters/:id/series', async (req: Request, res: Response) => {
 
 router.get('/characters/:id/stories', async (req: Request, res: Response) => {
   try {
-    const offset = Number(req.params.offset);
-    const limit = Number(req.params.limit || 20);
+    const offset = Number(req.query.offset);
+    const limit = Number(req.query.limit || 20);
     const characterId = req.params.id;
 
     const data = await storyService.getByCharacterId(characterId, offset, limit);
