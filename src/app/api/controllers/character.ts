@@ -5,6 +5,7 @@ import { comicService } from '../../domain/services/comic';
 import { eventService } from '../../domain/services/event';
 import { serieService } from '../../domain/services/serie';
 import { storyService } from '../../domain/services/story';
+import { responseFactory } from '../factories/response-factory';
 
 /**
  * @swagger
@@ -22,9 +23,19 @@ const router: Router = Router();
  *      summary: Autenticate a user
  *      tags: [Auth]
  */
-router.post('/characters', async (req: Request, res: Response) => {
+router.get('/characters', async (req: Request, res: Response) => {
   try {
-    res.success(await characterService.getAll(req.params.id));
+    const offset = Number(req.params.offset);
+    const limit = Number(req.params.limit || 20);
+
+    const data = await characterService.listAll({}, offset, limit);
+
+    const total = data.total;
+    const count = data.data.length;
+
+    const response = responseFactory(data.data, 200, 'Ok', offset, limit, total, count);
+
+    res.success(response);
   } catch (err) {
     res.invalid(err);
   }
@@ -33,7 +44,10 @@ router.post('/characters', async (req: Request, res: Response) => {
 
 router.get('/characters/:id', async (req: Request, res: Response) => {
   try {
-    res.success(await characterService.getById(req.params.id));
+    const data = await characterService.getById(req.params.id);
+    const response = responseFactory(data, 200, 'Ok', 0, 1, 1, 1);
+
+    res.success(response);
   } catch (err) {
     res.invalid(err);
   }
@@ -42,33 +56,77 @@ router.get('/characters/:id', async (req: Request, res: Response) => {
 
 router.get('/characters/:id/comics', async (req: Request, res: Response) => {
   try {
-    res.success(await comicService.getById(req.params.id));
+    const offset = Number(req.params.offset);
+    const limit = Number(req.params.limit || 20);
+    const characterId = req.params.id;
+
+    const data = await comicService.getByCharacterId(characterId, offset, limit);
+
+    const total = data.total;
+    const count = data.data.length;
+
+    const response = responseFactory(data.data, 200, 'Ok', offset, limit, total, count);
+
+    res.success(response);
   } catch (err) {
     res.invalid(err);
   }
 });
 
 
-router.put('/characters/:id/events', async (req: Request, res: Response) => {
+router.get('/characters/:id/events', async (req: Request, res: Response) => {
   try {
-    res.success(await eventService.getById(req.params.id));
+    const offset = Number(req.params.offset);
+    const limit = Number(req.params.limit || 20);
+    const characterId = req.params.id;
+
+    const data = await eventService.getByCharacterId(characterId, offset, limit);
+
+    const total = data.total;
+    const count = data.data.length;
+
+    const response = responseFactory(data.data, 200, 'Ok', offset, limit, total, count);
+
+    res.success(response);
   } catch (err) {
     res.invalid(err);
   }
 });
 
 
-router.delete('/characters/:id/series', async (req: Request, res: Response) => {
+router.get('/characters/:id/series', async (req: Request, res: Response) => {
   try {
-    res.success(await serieService.getById(req.params.id));
+    const offset = Number(req.params.offset);
+    const limit = Number(req.params.limit || 20);
+    const characterId = req.params.id;
+
+    const data = await serieService.getByCharacterId(characterId, offset, limit);
+
+    const total = data.total;
+    const count = data.data.length;
+
+    const response = responseFactory(data.data, 200, 'Ok', offset, limit, total, count);
+
+    res.success(response);
   } catch (err) {
     res.invalid(err);
   }
 });
 
-router.delete('/characters/:id/stories', async (req: Request, res: Response) => {
+router.get('/characters/:id/stories', async (req: Request, res: Response) => {
   try {
-    res.success(await storyService.getById(req.params.id));
+    const offset = Number(req.params.offset);
+    const limit = Number(req.params.limit || 20);
+    const characterId = req.params.id;
+
+    const data = await storyService.getByCharacterId(characterId, offset, limit);
+
+    const total = data.total;
+    const count = data.data.length;
+
+    const response = responseFactory(data.data, 200, 'Ok', offset, limit, total, count);
+
+    res.success(response);
   } catch (err) {
     res.invalid(err);
   }

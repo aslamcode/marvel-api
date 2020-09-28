@@ -39,7 +39,7 @@ async function configureApp() {
   app.use(superResponse);
 
   // Import the controllers
-  app.use('/api/v1/public', controllers);
+  app.use('/v1/public', controllers);
 
   // Configure swagger
   const swaggerOptions = {
