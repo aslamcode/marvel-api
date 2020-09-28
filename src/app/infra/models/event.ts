@@ -23,9 +23,9 @@ export const eventSchema = new Schema({
     type: { type: String },
     url: { type: String }
   }],
-  modified: { type: Date },
-  start: { type: Date },
-  end: { type: Date },
+  modified: { type: String },
+  start: { type: String },
+  end: { type: String },
   thumbnail: {
     path: { type: String },
     extension: { type: String },

@@ -28,7 +28,7 @@ export const serieSchema = new Schema({
   endYear: { type: Number },
   rating: { type: String },
   type: { type: String },
-  modified: { type: Date },
+  modified: { type: String },
   thumbnail: {
     path: { type: String },
     extension: { type: String },

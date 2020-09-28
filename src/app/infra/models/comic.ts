@@ -21,7 +21,7 @@ export const comicSchema = new Schema({
   issueNumber: { type: Number },
   variantDescription: { type: String },
   description: { type: String },
-  modified: { type: Date },
+  modified: { type: String },
   isbn: { type: String },
   upc: { type: String },
   diamondCode: { type: String },
@@ -47,7 +47,10 @@ export const comicSchema = new Schema({
     path: { type: String },
     extension: { type: String },
   }],
-  variants: [{ type: Object }],
+  variants: [{
+    resourceURI: { type: String },
+    name: { type: String }
+  }],
   collections: [{ type: Object }],
   collectedIssues: [{ type: Object }],
 
@@ -82,7 +85,7 @@ export const comicSchema = new Schema({
 
   dates: [{
     type: { type: String },
-    date: { type: Date },
+    date: { type: String },
   }]
 }, { timestamps: false, versionKey: false });
 

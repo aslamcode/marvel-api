@@ -20,7 +20,7 @@ export const storySchema = new Schema({
   description: { type: String },
   resourceURI: { type: String },
   type: { type: String },
-  modified: { type: Date },
+  modified: { type: String },
   thumbnail: {
     path: { type: String },
     extension: { type: String },

@@ -18,7 +18,7 @@ export const characterSchema = new Schema({
   id: { type: Number },
   name: { type: String },
   description: { type: String },
-  modified: { type: Date },
+  modified: { type: String },
   thumbnail: {
     path: { type: String },
     extension: { type: String },
