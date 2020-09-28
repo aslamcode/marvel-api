@@ -22,6 +22,19 @@ const router: Router = Router();
  *    get:
  *      summary: Get all characters
  *      tags: [Character]
+ *      produces:
+ *       - application/json
+ *      parameters:
+ *       - name: offset
+ *         description: Make offeset from item index to limit
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: limit
+ *         description: Limit items in response
+ *         in: query
+ *         required: false
+ *         type: string
  */
 router.get('/characters', async (req: Request, res: Response) => {
   try {
@@ -41,7 +54,16 @@ router.get('/characters', async (req: Request, res: Response) => {
   }
 });
 
-
+/**
+ * @swagger
+ * path:
+ *  /characters/:id:
+ *    get:
+ *      summary: Get a character by id
+ *      tags: [Character]
+ *      produces:
+ *       - application/json
+ */
 router.get('/characters/:id', async (req: Request, res: Response) => {
   try {
     const data = await characterService.getById(req.params.id);
@@ -53,7 +75,27 @@ router.get('/characters/:id', async (req: Request, res: Response) => {
   }
 });
 
-
+/**
+ * @swagger
+ * path:
+ *  /characters/:id/comics:
+ *    get:
+ *      summary: Get all comics by character id
+ *      tags: [Character]
+ *      produces:
+ *       - application/json
+ *      parameters:
+ *       - name: offset
+ *         description: Make offeset from item index to limit
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: limit
+ *         description: Limit items in response
+ *         in: query
+ *         required: false
+ *         type: string
+ */
 router.get('/characters/:id/comics', async (req: Request, res: Response) => {
   try {
     const offset = Number(req.query.offset);
@@ -73,7 +115,27 @@ router.get('/characters/:id/comics', async (req: Request, res: Response) => {
   }
 });
 
-
+/**
+ * @swagger
+ * path:
+ *  /characters/:id/events:
+ *    get:
+ *      summary: Get all events by character id
+ *      tags: [Character]
+ *      produces:
+ *       - application/json
+ *      parameters:
+ *       - name: offset
+ *         description: Make offeset from item index to limit
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: limit
+ *         description: Limit items in response
+ *         in: query
+ *         required: false
+ *         type: string
+ */
 router.get('/characters/:id/events', async (req: Request, res: Response) => {
   try {
     const offset = Number(req.query.offset);
@@ -93,7 +155,27 @@ router.get('/characters/:id/events', async (req: Request, res: Response) => {
   }
 });
 
-
+/**
+ * @swagger
+ * path:
+ *  /characters/:id/series:
+ *    get:
+ *      summary: Get all series by character id
+ *      tags: [Character]
+ *      produces:
+ *       - application/json
+ *      parameters:
+ *       - name: offset
+ *         description: Make offeset from item index to limit
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: limit
+ *         description: Limit items in response
+ *         in: query
+ *         required: false
+ *         type: string
+ */
 router.get('/characters/:id/series', async (req: Request, res: Response) => {
   try {
     const offset = Number(req.query.offset);
@@ -113,6 +195,27 @@ router.get('/characters/:id/series', async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * @swagger
+ * path:
+ *  /characters/:id/stories:
+ *    get:
+ *      summary: Get all stories by character id
+ *      tags: [Character]
+ *      produces:
+ *       - application/json
+ *      parameters:
+ *       - name: offset
+ *         description: Make offeset from item index to limit
+ *         in: query
+ *         required: false
+ *         type: string
+ *       - name: limit
+ *         description: Limit items in response
+ *         in: query
+ *         required: false
+ *         type: string
+ */
 router.get('/characters/:id/stories', async (req: Request, res: Response) => {
   try {
     const offset = Number(req.query.offset);
@@ -131,6 +234,5 @@ router.get('/characters/:id/stories', async (req: Request, res: Response) => {
     res.invalid(err);
   }
 });
-
 
 export { router as characterRouter };
