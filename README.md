@@ -28,7 +28,8 @@
 
 ## Instruções de execução:
 
-* Na pasta raiz do projeto execute o comando: `npm run serve`
+* Na pasta raiz do projeto execute o comando para servir a aplicação: `npm run serve`
+* Caso queria apenas buildar e executar a aplicação rode os comandos em sequência: `npm run build` e `npm start`
 * Se tudo estiver OK será informado em qual porta a API estará rodando e se também está conectado com o banco. Dependendo de como o mongoDB server foi instalado, será necessário substituir a string de conexão no arquivo de ambiente .env
 
 ## Instruções de testes dos end points:
