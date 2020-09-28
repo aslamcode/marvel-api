@@ -9,9 +9,9 @@
 ## Instruções de configuração:
 
 * Clone o repositório
-* Na pasta raiz execute o comando através do terminal:
+* Na pasta raiz acesse o terminal e execute o comando:
  `npm i` ou `npm install` para realizar o download das dependências
-* Crie um arquivo de ambiente chamado .env na pasta raiz do projeto, ele deverá conter os seguintes dados:
+* Crie um arquivo de ambiente chamado .env na pasta raiz do projeto. Ele deverá conter os seguintes dados:
 
   ```### Development vars ###
   DEV_PORT=8080
@@ -42,5 +42,5 @@
   * API: Contém os controllers, interfaces e factories necessários para receber ou enviar respostas
   * DOMAIN: Contém as entidades, interfaces e serviços
   * INFRA: Contém os repositórios e models utilizados no projeto
-* Pastas que estão do lado de fora da pasta APP, são arquivos que podem ser reaproveitados entre outros projeto e não tem especificamente código acoplado a esta aplicação, como middlewares, scripts e funções da pasta utils.
-* Os dados do arquivo .env foi adicionado a este readme apenas para simplificar a execução e testes da aplicação, visto que o mesmo não é comitado no projeto.
+* Pastas que estão do lado de fora da pasta APP, são arquivos que podem ser reaproveitados entre outros projetos e não tem especificamente código acoplado a esta aplicação, como middlewares, scripts e funções da pasta utils.
+* Os dados do arquivo .env foram adicionados a este readme apenas para simplificar a execução e testes da aplicação, visto que o mesmo não é comitado no projeto.
